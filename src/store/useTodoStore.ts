@@ -31,4 +31,8 @@ const useTodoStore = create<TodoStore>((set) => ({
     })),
 }));
 
+export const resetStore = () => {
+  useTodoStore.setState({ todos: [] });
+};
+
 export default useTodoStore;

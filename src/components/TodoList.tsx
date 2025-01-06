@@ -47,8 +47,14 @@ export default function TodoList() {
         <div className="text-lg px-4 py-2">총 {filteredTodos.length}개</div>
         {filteredTodos.length > 0 ? (
           filteredTodos.map((todo) => (
-            <div key={todo.id} className="flex items-center p-4">
+            <div
+              key={todo.id}
+              className="flex items-center p-4"
+              data-testid="todo-item"
+            >
               <div
+                role="checkbox"
+                aria-checked={todo.done}
                 className={`flex items-center justify-center border border-gray-400 rounded-full w-[24px] h-[24px] cursor-pointer ${todo.done ? 'bg-blue-400' : ''}`}
                 onClick={() => toggleTodo(todo.id)}
               >
@@ -57,11 +63,14 @@ export default function TodoList() {
                 ) : null}
               </div>
               <span className="px-2">{todo.title}</span>
-              <div
-                className="ml-auto cursor-pointer"
-                onClick={() => removeTodo(todo.id)}
-              >
-                <Image src="./Close.svg" height={24} width={24} alt="close" />
+              <div className="ml-auto cursor-pointer">
+                <Image
+                  src="./Close.svg"
+                  height={24}
+                  width={24}
+                  alt="close"
+                  onClick={() => removeTodo(todo.id)}
+                />
               </div>
             </div>
           ))
