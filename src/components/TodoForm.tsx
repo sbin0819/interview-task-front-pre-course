@@ -15,13 +15,20 @@ const TodoForm = () => {
     }
   };
 
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    if (e.target.value.length > 20) {
+      return;
+    }
+    setInputValue(e.target.value);
+  };
+
   return (
     <form onSubmit={handleSubmit}>
       <input
         className="mt-8 py-6 px-4 w-full bg-gray-100 rounded-2xl outline-none"
         placeholder="할 일을 입력해 주세요"
         value={inputValue}
-        onChange={(e) => setInputValue(e.target.value)}
+        onChange={handleChange}
       />
     </form>
   );
