@@ -44,6 +44,7 @@ export default function TodoList() {
       </div>
 
       <div>
+        <div className="text-lg px-4 py-2">총 {filteredTodos.length}개</div>
         {filteredTodos.length > 0 ? (
           filteredTodos.map((todo) => (
             <div key={todo.id} className="flex items-center p-4">

@@ -1,7 +1,12 @@
-import "@testing-library/jest-dom";
+import '@testing-library/jest-dom';
+import { render, screen } from '@testing-library/react';
+import TodoUserListPage from './TodoUserListPage';
 
-describe("테스트 샘플", () => {
-  it("sample", () => {
-    expect(1 + 1).toBe(2);
+describe('TodoUserListPage', () => {
+  it('renders the heading To Do List', () => {
+    render(<TodoUserListPage />);
+
+    const heading = screen.getByRole('heading', { name: /To Do List/i });
+    expect(heading).toBeInTheDocument();
   });
 });
