@@ -9,7 +9,7 @@ const TodoForm = () => {
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    if (inputValue.trim()) {
+    if (inputValue.trim() && inputValue.length < 20) {
       addTodo(inputValue.trim());
       setInputValue('');
     }
